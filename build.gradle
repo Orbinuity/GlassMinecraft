@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "${glassGroupId}.${glassName}"
-version = "${glassVersion}"
+version = "${minecraftVersion}.${glassVersionAppend}"
 
 application {
     mainClass = "${mainMinecraftClass}"
