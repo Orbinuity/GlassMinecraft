@@ -10,6 +10,11 @@ application {
     mainClass = "${mainMinecraftClass}"
 }
 
+jar {
+    archiveBaseName.set("${glassName}${glassVersion}")
+    archiveVersion.set("")
+}
+
 run {
     args = [
             "--accessToken", "0",
