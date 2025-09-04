@@ -35,11 +35,9 @@ public final class DeferredRegister<T> {
         if (bound) return;
         bound = true;
         bus.addListener(RegistryEvent.Register.class, evt -> {
-            // Only handle events for the registry we were created with
             if (evt.registry() == this.registry) {
                 for (Entry<T> e : pending) {
                     T value = e.supplier().get();
-                    // Register into vanilla registry
                     Registry.register(this.registry, new ResourceLocation(modId, e.name()), value);
                     e.handle().set(value);
                 }
