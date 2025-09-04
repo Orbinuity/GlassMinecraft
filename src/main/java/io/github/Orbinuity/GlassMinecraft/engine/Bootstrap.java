@@ -32,23 +32,18 @@ public final class Bootstrap {
     public static void bootStrap() {
         System.out.println("[Engine] Booting mini-Forge (Minecraft-backed registries)...");
 
-        // 1) Build the global bus
         IEventBus bus = new EventBus();
 
-        // 2) Use Minecraft's registries
-        Registry<?> BLOCKS = BuiltInRegistries.BLOCK; // Registries.BLOCK is the Minecraft block registry
-        Registry<?> ITEMS  = BuiltInRegistries.ITEM;  // Registries.ITEM is the Minecraft item registry
+        Registry<?> BLOCKS = BuiltInRegistries.BLOCK;
+        Registry<?> ITEMS  = BuiltInRegistries.ITEM;
 
-        // 3) Ensure mods dir exists and load mods
         loadAnnotatedMods(bus);
 
-        // 4) Fire registry events (Forge fires per-registry events)
         System.out.println("[Engine] Posting Register<Block>...");
-        bus.post(new RegistryEvent.Register<>(BuiltInRegistries.BLOCK)); // event carries Minecraft registry
+        bus.post(new RegistryEvent.Register<>(BuiltInRegistries.BLOCK));
         System.out.println("[Engine] Posting Register<Item>...");
         bus.post(new RegistryEvent.Register<>(BuiltInRegistries.ITEM));
 
-        // 5) Freeze step (we still post FreezeAll for listeners)
         bus.post(new RegistryEvent.FreezeAll());
 
         System.out.println("[Engine] Done.");
@@ -113,7 +108,6 @@ public final class Bootstrap {
     private static void loadModAssets(String modId, File jarFile) {
         File modPackDir = new File(resourcePacksDir, modId);
 
-        // Delete old pack
         if (modPackDir.exists()) {
             try {
                 Files.walk(modPackDir.toPath())
@@ -127,13 +121,11 @@ public final class Bootstrap {
             }
         }
 
-        // create pack root and assets folder
         if (!modPackDir.mkdirs()) {
             System.err.println("Failed to create pack dir " + modPackDir);
             return;
         }
 
-        // create pack.mcmeta
         File mcmetaFile = new File(modPackDir, "pack.mcmeta");
         String mcmeta = "{\n" +
                 "  \"pack\": {\n" +
@@ -147,7 +139,6 @@ public final class Bootstrap {
             e.printStackTrace();
         }
 
-        // Copy assets from JAR
         try (java.util.jar.JarFile jar = new java.util.jar.JarFile(jarFile)) {
             jar.stream()
                     .filter(entry -> !entry.isDirectory() && entry.getName().startsWith("assets/" + modId + "/"))
@@ -171,7 +162,6 @@ public final class Bootstrap {
     private static void loadDataPacks(String modId, File jarFile) {
         File modPackDir = new File(dataPacksTempFolder, modId);
 
-        // Delete old pack
         if (modPackDir.exists()) {
             try {
                 Files.walk(modPackDir.toPath())
@@ -185,13 +175,11 @@ public final class Bootstrap {
             }
         }
 
-        // create pack root and assets folder
         if (!modPackDir.mkdirs()) {
             System.err.println("Failed to create pack dir " + modPackDir);
             return;
         }
 
-        // create pack.mcmeta
         File mcmetaFile = new File(modPackDir, "pack.mcmeta");
         String mcmeta = "{\n" +
                 "  \"pack\": {\n" +
@@ -205,7 +193,6 @@ public final class Bootstrap {
             e.printStackTrace();
         }
 
-        // Copy assets from JAR
         try (java.util.jar.JarFile jar = new java.util.jar.JarFile(jarFile)) {
             jar.stream()
                     .filter(entry -> !entry.isDirectory() && entry.getName().startsWith("data/" + modId + "/"))
