@@ -15,6 +15,12 @@ jar {
     archiveVersion.set("")
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
 run {
     args = [
             "--accessToken", "0",
