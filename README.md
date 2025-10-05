@@ -1,19 +1,15 @@
 # Glass Minecraft
 
-> 201.1.0
+[![License](https://img.shields.io/github/license/Orbinuity/GlassMinecraft)](./LICENSE)
+[![Last Commit](https://img.shields.io/github/last-commit/Orbinuity/GlassMinecraft)](https://github.com/Orbinuity/GlassMinecraft/commits)
+[![Language](https://img.shields.io/badge/Language-Java-blue)](https://www.java.com/)
+[![Version](https://img.shields.io/badge/Version-201.1.0-orange)](https://github.com/Orbinuity/GlassMinecraft/releases/v201.1.0)
+[![Made By](https://img.shields.io/badge/Made%20by-Orbinuity-teal)](https://orbinuity.github.io/)
 
-[<img alt="Status" src="https://raw.githubusercontent.com/Orbinuity/.github/main/status/unstable.png" width="100" height="25">](https://orbinuity.github.io/statusIcons)
+[![Usage](https://img.shields.io/badge/How%20to%20use-brown)](./USAGE.md)
 
 A minecraft mod loader
 
 ## License
 
 Before copying any part of this project, please read the [LICENSE](./LICENSE) file to understand the terms and conditions.
-
-## How to use
-
-Extract the zip to your .minecraft/versions folder so you shoold have .minecraft/versions/GlassMinecraft201.1.0 and in there a README.md, LICENCE, GlassMinecraft201.1.0.json and GlassMinecraft201.1.0.jar.
-
-now remove the README.md and LICENCE.
-
-now you have installed Glass Minecraft!
