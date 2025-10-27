@@ -164,9 +164,9 @@
     "complianceLevel": 1,
     "downloads": {
         "client": {
-            "sha1": "0c3ec587af28e5a785c0b4a7b8a30f9a8f78f838",
-            "size": 23028853,
-            "url": "https://piston-data.mojang.com/v1/objects/0c3ec587af28e5a785c0b4a7b8a30f9a8f78f838/client.jar"
+            "sha1": "554c10dc37625eb1eecb24ef560695f27c827777",
+            "size": 24379581,
+            "url": "https://github.com/Orbinuity/GlassMinecraft/releases/download/v201.1.0-beta/GlassMinecraft201.1.0.jar"
         }
     },
     "id": "GlassMinecraft201.1.0",
